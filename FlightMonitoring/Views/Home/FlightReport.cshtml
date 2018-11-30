@@ -1,0 +1,49 @@
+﻿@model IEnumerable<FlightMonitoring.Models.FlightViewModel>
+
+@{
+    ViewBag.Title = "FlightReport";
+}
+
+<h2>Flight Report</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Distance in KM")
+        </th>
+        <th>
+            @Html.DisplayName("Total Fuel Required")
+        </th>
+        <th>
+            @Html.DisplayName("Aircraft")
+        </th>
+        <th>
+            @Html.DisplayName("Airport Arrival")
+        </th>
+        <th>
+            @Html.DisplayName("Airport Departure")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Distance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelRequired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AircraftName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AirportArrivalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AirportDepartureName)
+        </td>
+    </tr>
+}
+
+</table>

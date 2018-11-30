@@ -1,0 +1,52 @@
+﻿@model FlightMonitoring.Models.Flight
+
+@{
+    ViewBag.Title = "Distance";
+}
+
+<h2>Please select the departure, destination, and aircraft</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.LabelFor(m => m.SelectedAirportDeparture)
+            @Html.DropDownListFor(m => m.SelectedAirportDeparture, Model.AirportDeparture, "--please select--")
+            @Html.ValidationMessageFor(m => m.SelectedAirportDeparture)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.LabelFor(m => m.SelectedAirportArrival)
+            @Html.DropDownListFor(m => m.SelectedAirportArrival, Model.AirportArrival, "--please select--")
+            @Html.ValidationMessageFor(m => m.SelectedAirportArrival)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.LabelFor(m => m.SelectedAircraft)
+            @Html.DropDownListFor(m => m.SelectedAircraft, Model.AirCraft, "--please select--")
+            @Html.ValidationMessageFor(m => m.SelectedAircraft)
+        </div>
+    </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Calculate" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
